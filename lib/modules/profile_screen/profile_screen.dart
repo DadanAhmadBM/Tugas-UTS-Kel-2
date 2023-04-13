@@ -57,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
-                      color: Colors.blue[200],
+                      color: Colors.red[200],
                     ),
                     child: const Icon(
                       Icons.chevron_left_rounded,
@@ -91,7 +91,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         label: const Text("Nama"),
                         isDense: true,
                         hintText: "Nama Anda",
-                        fillColor: Colors.blue[100],
+                        fillColor: Colors.red[100],
                         filled: true,
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,
@@ -133,7 +133,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         label: const Text("Password"),
                         isDense: true,
-                        fillColor: Colors.blue[100],
+                        fillColor: Colors.red[100],
                         filled: true,
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
@@ -163,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         label: const Text("Email"),
                         isDense: true,
                         hintText: "Email Anda",
-                        fillColor: Colors.blue[100],
+                        fillColor: Colors.red[100],
                         filled: true,
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,
@@ -194,7 +194,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         label: const Text("No Hp"),
                         isDense: true,
                         hintText: "No Hp anda",
-                        fillColor: Colors.blue[100],
+                        fillColor: Colors.red[100],
                         filled: true,
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,
@@ -227,7 +227,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   borderRadius: BorderRadius.circular(
                     16,
                   ),
-                  color: Colors.blue),
+                  color: Colors.red),
               child: const Center(
                 child: Text(
                   "Simpan",

@@ -220,7 +220,7 @@ class HotNewsCard extends StatelessWidget {
         child: Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 100,
+            height: 65,
             width: double.infinity,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
@@ -237,14 +237,14 @@ class HotNewsCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              subtitle: Text(
-                news.content!,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
-              ),
+              // subtitle: Text(
+              //   news.content!,
+              //   maxLines: 2,
+              //   overflow: TextOverflow.ellipsis,
+              //   style: const TextStyle(
+              //     color: Colors.white,
+              //   ),
+              // ),
             ),
           ),
         ),

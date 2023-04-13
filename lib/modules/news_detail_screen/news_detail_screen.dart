@@ -23,6 +23,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: const Text(
           "News Detail",
         ),
