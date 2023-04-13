@@ -55,7 +55,7 @@ class _HomeFragmentState extends State<HomeFragment> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 const Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: 16,
                     ),
@@ -67,20 +67,22 @@ class _HomeFragmentState extends State<HomeFragment> {
                     height: 8,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                    ),
-                    child: HomeFragmentWidget.hotestNewsCard(),
-                  ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                      ),
+                      child: HomeFragmentWidget.hotestNewsCard()),
                   const SizedBox(
                     height: 16,
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: SectionTitle(
-                      label: "Latest News",
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16,
                     ),
                   ),
+                  //   child: SectionTitle(
+                  //     label: "Latest News",
+                  //   ),
+                  // ),
                   const SizedBox(
                     height: 8,
                   ),
@@ -88,9 +90,7 @@ class _HomeFragmentState extends State<HomeFragment> {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
                     ),
-                    child: HomeFragmentWidget.latestNewsSection(
-                      size,
-                    ),
+                    child: HomeFragmentWidget.latestNewsSection(),
                   ),
                 ],
               ),
