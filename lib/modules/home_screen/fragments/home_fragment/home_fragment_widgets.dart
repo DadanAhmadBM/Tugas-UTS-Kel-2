@@ -132,6 +132,7 @@ class _HotNewsWidgetState extends State<HotNewsWidget> {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                 return Scaffold(
                   appBar: AppBar(
+                    backgroundColor: Colors.red,
                     title: const Text("News"),
                   ),
                   body: const NewsFragment(),
@@ -278,6 +279,7 @@ class LatestNewsSection extends StatelessWidget {
                     .push(MaterialPageRoute(builder: (context) {
                   return Scaffold(
                     appBar: AppBar(
+                      backgroundColor: Colors.red,
                       title: const Text("News"),
                     ),
                     body: const NewsFragment(),
