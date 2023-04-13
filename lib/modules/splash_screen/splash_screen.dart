@@ -41,8 +41,9 @@ class _SplashScreenState extends State<SplashScreen> {
     size = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
-        child: FlutterLogo(
-          size: size.width * 0.4,
+        child: Image.asset(
+          'assets/img/logo.png',
+          width: size.width * 0.4,
         ),
       ),
     );
