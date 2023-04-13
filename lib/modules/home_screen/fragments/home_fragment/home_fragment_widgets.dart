@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pertemuan_v/configs/app_routes.dart';
 
+import '../../../../models/news.dart';
 import '../../../../models/user.dart';
 
 class HomeFragmentWidget {
@@ -27,12 +28,9 @@ class HomeFragmentWidget {
     Size size,
     String pictureUrl,
     String newsTitle,
+    News news,
   ) {
-    return HotestNewsCard(
-      size: size,
-      pictureUrl: pictureUrl,
-      newsTitle: newsTitle,
-    );
+    return HotestNewsCard(size: size, news: news);
   }
 
   static latestNewsCard(Size size, int i) {
@@ -141,136 +139,144 @@ class SectionTitle extends StatelessWidget {
 }
 
 class HotestNewsCard extends StatelessWidget {
-  const HotestNewsCard({
+  News news;
+  HotestNewsCard({
     super.key,
-    required this.size,
-    required this.pictureUrl,
-    required this.newsTitle,
+    required this.news,
   });
-
-  final Size size;
-  final String pictureUrl;
-  final String newsTitle;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(
-            16,
-          ),
-          child: AspectRatio(
-            aspectRatio: 16 / 9,
-            child: Image.network(
-              pictureUrl,
-              fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        GoRouter.of(context).pushNamed(
+          'news-detail',
+          params: {
+            'id': news.id.toString(),
+          },
+          extra: news,
+        );
+      },
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 10),
+        height: 250,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(
+              news.image!,
             ),
           ),
         ),
-        Positioned(
-          bottom: 0,
+        child: Align(
+          alignment: Alignment.bottomCenter,
           child: Container(
-            height: 50,
-            width: size.width - 32,
+            height: 100,
+            width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.5),
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(16),
-                bottomRight: Radius.circular(16),
+                borderRadius: BorderRadius.circular(15),
+                gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.transparent, Colors.grey])),
+            child: ListTile(
+              title: Text(
+                news.title!,
+                maxLines: 2,
+                style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
+              subtitle: Text(
+                news.content!,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
         ),
-        Positioned(
-          bottom: 16,
-          right: 16,
-          child: Text(
-            newsTitle,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
 
-class LatestNewsCard extends StatelessWidget {
-  const LatestNewsCard({
-    super.key,
-    required this.size,
-    required this.i,
-  });
+// class LatestNewsCard extends StatelessWidget {
+//   const LatestNewsCard({
+//     super.key,
+//     required this.size,
+//     required this.i,
+//   });
 
-  final Size size;
-  final int i;
+//   final Size size;
+//   final int i;
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              8,
-            ),
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                spreadRadius: 1,
-                color: Colors.black12,
-              ),
-            ],
-          ),
-          child: InkWell(
-            onTap: () {
-              GoRouter.of(context).goNamed(
-                AppRoutes.newsDetail,
-                params: {
-                  "id": i.toString(),
-                },
-              );
-            },
-            child: Row(
-              children: [
-                SizedBox(
-                  width: size.width * 0.25,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      bottomLeft: Radius.circular(8),
-                    ),
-                    child: AspectRatio(
-                      aspectRatio: 1 / 1,
-                      child: Image.network(
-                        "https://picsum.photos/200",
-                      ),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "${i + 1}. Laboris fugiat eiusmod consequat aliqua eiusmod.",
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 4,
-        ),
-      ],
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: [
+//         Container(
+//           decoration: BoxDecoration(
+//             borderRadius: BorderRadius.circular(
+//               8,
+//             ),
+//             color: Colors.white,
+//             boxShadow: const [
+//               BoxShadow(
+//                 spreadRadius: 1,
+//                 color: Colors.black12,
+//               ),
+//             ],
+//           ),
+//           child: InkWell(
+//             onTap: () {
+//               GoRouter.of(context).goNamed(
+//                 AppRoutes.newsDetail,
+//                 params: {
+//                   "id": i.toString(),
+//                 },
+//               );
+//             },
+//             child: Row(
+//               children: [
+//                 SizedBox(
+//                   width: size.width * 0.25,
+//                   child: ClipRRect(
+//                     borderRadius: const BorderRadius.only(
+//                       topLeft: Radius.circular(8),
+//                       bottomLeft: Radius.circular(8),
+//                     ),
+//                     child: AspectRatio(
+//                       aspectRatio: 1 / 1,
+//                       child: Image.network(
+//                         "https://picsum.photos/200",
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//                 Flexible(
+//                   child: Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: Text(
+//                       "${i + 1}. Laboris fugiat eiusmod consequat aliqua eiusmod.",
+//                     ),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//         const SizedBox(
+//           height: 4,
+//         ),
+//       ],
+//     );
+//   }
+// }
 
 class LatestNewsSection extends StatelessWidget {
   const LatestNewsSection({
@@ -280,16 +286,57 @@ class LatestNewsSection extends StatelessWidget {
 
   final Size size;
 
+  Future<List<News>> getdataNews() async {
+    List<News> newslistData = [];
+    await Future.delayed(const Duration(seconds: 1), () {
+      newslistData = newsList;
+    });
+    return newslistData;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        for (int i = 0; i < 10; i++)
-          LatestNewsCard(
-            size: size,
-            i: i,
-          ),
+        ListTile(
+          title: const Text("Latest News"),
+          trailing: IconButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return Scaffold(
+                    appBar: AppBar(
+                      title: const Text("News"),
+                    ),
+                    body: const NewsFragment(),
+                  );
+                }));
+              },
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                size: 15,
+              )),
+        ),
+        FutureBuilder(
+          future: getdataNews(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            } else {
+              return Container(
+                margin: const EdgeInsets.symmetric(horizontal: 5),
+                child: Column(
+                    children: List.generate(
+                        newsList.length,
+                        (int i) => NewsFragmentWidget(
+                              news: newsList[i],
+                            ))),
+              );
+            }
+          },
+        )
       ],
     );
   }
