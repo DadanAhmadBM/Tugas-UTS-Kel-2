@@ -33,7 +33,7 @@ class User {
       username: "iapa",
       email: "iapa@email.com",
       profilePhoto:
-          "https://cdn.idntimes.com/content-images/community/2020/09/104967619-2451390651819718-4934284928595035666-n-2fc82b7325949c7d003c1c58e17d48b7.jpg",
+          "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/jawapos/2019/01/menang-pilkada-bandung-barat-hengky-kurniawan-bentuk-tim-transisi_m_226841.jpg",
       phoneNumber: "085123456789",
     );
   }

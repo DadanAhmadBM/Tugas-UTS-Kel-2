@@ -14,11 +14,17 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController nameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+  bool isVisiblePassword = false;
 
   @override
   void initState() {
     if (widget.user.name != "") {
       nameController.text = widget.user.name;
+      emailController.text = widget.user.email;
+      phoneNumberController.text = widget.user.phoneNumber!;
     }
     super.initState();
   }
@@ -81,7 +87,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       keyboardType: TextInputType.name,
                       textInputAction: TextInputAction.search,
                       decoration: InputDecoration(
-                        suffixIcon: const Icon(Icons.search_rounded),
+                        suffixIcon: const Icon(Icons.person_rounded),
                         label: const Text("Nama"),
                         isDense: true,
                         hintText: "Nama Anda",
@@ -98,6 +104,103 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         }
                         return null;
                       },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    child: TextFormField(
+                      controller: _passwordController,
+                      obscureText: !isVisiblePassword,
+                      keyboardType: TextInputType.name,
+                      textInputAction: TextInputAction.done,
+                      decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isVisiblePassword = !isVisiblePassword;
+                            });
+                          },
+                          icon: Icon(
+                            isVisiblePassword == false
+                                ? Icons.visibility_rounded
+                                : Icons.visibility_off_rounded,
+                          ),
+                        ),
+                        label: const Text("Password"),
+                        isDense: true,
+                        fillColor: Colors.blue[100],
+                        filled: true,
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(30)),
+                      ),
+                      validator: (value) {
+                        if (value == "" || value == null) {
+                          return "Password Wajib diisi";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    child: TextFormField(
+                      controller: emailController,
+                      keyboardType: TextInputType.name,
+                      textInputAction: TextInputAction.search,
+                      decoration: InputDecoration(
+                        suffixIcon: const Icon(Icons.mail_rounded),
+                        label: const Text("Email"),
+                        isDense: true,
+                        hintText: "Email Anda",
+                        fillColor: Colors.blue[100],
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == "") {
+                          return "Email Wajib diisi";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    child: TextFormField(
+                      controller: phoneNumberController,
+                      keyboardType: TextInputType.name,
+                      textInputAction: TextInputAction.search,
+                      decoration: InputDecoration(
+                        suffixIcon: const Icon(Icons.phone_android_rounded),
+                        label: const Text("No Hp"),
+                        isDense: true,
+                        hintText: "No Hp anda",
+                        fillColor: Colors.blue[100],
+                        filled: true,
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
                     ),
                   ),
                 ],
