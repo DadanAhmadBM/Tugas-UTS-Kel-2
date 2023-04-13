@@ -98,6 +98,7 @@ class SearchFieldWidget extends StatelessWidget {
         ),
         suffixIcon: const Icon(
           Icons.search_rounded,
+          color: Colors.red,
         ),
       ),
     );
@@ -158,7 +159,7 @@ class _HotNewsWidgetState extends State<HotNewsWidget> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
-            3,
+            4,
             (index) => DotWidget(_pageIndex, index),
           ),
         )

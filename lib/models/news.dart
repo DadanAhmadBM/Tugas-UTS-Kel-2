@@ -82,12 +82,20 @@ List<News> newsList = [
         "Ketua DPP Partai Demokrasi Indonesia Perjuangan atau PDIP Said Abdullah mengatakan Puan Maharani merupakan pelopor safari politik pertama kali. Dia menjelaskan, Puan sudah melakukan safari demi menjalin kerja sama politik alias koalisi jelang Pemilihan Umum atau Pemilu 2024.",
   ),
   News(
-    id: 10,
+    id: 9,
     title: "Jokowi Resmi Teken Kepres Cuti Bersama Mulai 19 April",
     image:
         "https://cdn.antaranews.com/cache/730x487/2023/04/13/WhatsApp-Image-2023-04-13-at-15.06.25.jpeg",
     content:
         "Presiden Joko Widodo atau Jokowi  resmi menerbitkan aturan terbaru soal hari kerja dan jam kerja instansi pemerintah dan pegawai aparatur sipil negara. Beberapa aturan baru yaitu terkait jam kerja di bulan Ramadan dan penerapan secara fleksibel.",
+  ),
+  News(
+    id: 10,
+    title: "Diduga Korupsi Rp1 Miliar, Kades di Mojokerto Ditahan Kejaksaan",
+    image:
+        "https://akcdn.detik.net.id/community/media/visual/2023/04/13/kades-lolawang-dijemput-paksa-kejari-mojokerto-1_169.jpeg?w=700&q=90",
+    content:
+        "Kejaksaan Negeri (Kejari) Mojokerto akhirnya menjemput paksa Sugiharto, Kepala Desa (Kades) Lolawang, Kecamatan Ngoro, Mojokerto, Kamis 13 April 2023. Upaya penjemput paksa dilakukan setelah berulang kali mangkir dari panggilan. Kades yang diduga kuat telah melakukan tindak pidana korupsi pengelolaan keuangan desa tersebut langsung digelandang ke kantor Kejari Kabupaten Mojokerto, untuk dilakukan pemeriksaan.",
   ),
 ];
 
@@ -118,5 +126,13 @@ List<News> hotNewsList = [
         "https://media.suara.com/pictures/653x366/2023/01/13/24903-puan-maharani-menangis-tangkapan-layarkompas-tv.jpg",
     content:
         "Ketua DPP Partai Demokrasi Indonesia Perjuangan atau PDIP Said Abdullah mengatakan Puan Maharani merupakan pelopor safari politik pertama kali. Dia menjelaskan, Puan sudah melakukan safari demi menjalin kerja sama politik alias koalisi jelang Pemilihan Umum atau Pemilu 2024.",
+  ),
+  News(
+    id: 14,
+    title: "Jokowi Resmi Teken Kepres Cuti Bersama Mulai 19 April",
+    image:
+        "https://cdn.antaranews.com/cache/730x487/2023/04/13/WhatsApp-Image-2023-04-13-at-15.06.25.jpeg",
+    content:
+        "Presiden Joko Widodo atau Jokowi  resmi menerbitkan aturan terbaru soal hari kerja dan jam kerja instansi pemerintah dan pegawai aparatur sipil negara. Beberapa aturan baru yaitu terkait jam kerja di bulan Ramadan dan penerapan secara fleksibel.",
   ),
 ];

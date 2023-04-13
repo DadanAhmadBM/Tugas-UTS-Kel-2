@@ -85,6 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Icons.menu_rounded,
           ),
         ],
+        selectedItemColor: Colors.red,
+        unselectedItemColor: Colors.grey,
       ),
     );
   }
@@ -94,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         children: [
           Container(
-            color: Colors.blue,
+            color: Colors.red,
             child: Column(
               children: [
                 SizedBox(
@@ -162,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: Colors.blue[100],
+                  color: Colors.red[100],
                 ),
                 child: Row(
                   children: [
@@ -199,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              color: Colors.blue,
+              color: Colors.red,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
