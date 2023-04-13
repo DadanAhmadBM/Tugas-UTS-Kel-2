@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pertemuan_v/modules/home_screen/home_screen.dart';
 import 'package:pertemuan_v/modules/news_detail_screen/news_detail_screen.dart';
 import 'package:pertemuan_v/modules/splash_screen/splash_screen.dart';
+import 'package:pertemuan_v/models/news.dart';
 
 import '../models/user.dart';
 import '../modules/profile_screen/profile_screen.dart';
@@ -57,11 +58,20 @@ class AppRoutes {
     BuildContext context,
     GoRouterState state,
   ) {
-    return MaterialPage(
-      child: NewsDetailScreen(
-        id: state.params["id"]!,
-      ),
-    );
+    if (state.params["id"]! != null) {
+      return MaterialPage(
+        child: NewsDetailScreen(
+          news: state.extra as News,
+        ),
+      );
+    } else {
+      return const MaterialPage(
+          child: Scaffold(
+        body: Center(
+          child: Text("Data is Empty"),
+        ),
+      ));
+    }
   }
 
   static final GoRouter goRouter = GoRouter(
@@ -78,7 +88,7 @@ class AppRoutes {
         routes: [
           GoRoute(
             name: newsDetail,
-            path: "news-detail:id",
+            path: "news-detail/:id",
             pageBuilder: _newsDetailScreenBuilder,
           ),
           GoRoute(
