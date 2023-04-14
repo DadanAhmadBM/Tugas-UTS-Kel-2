@@ -29,7 +29,7 @@ class User {
   factory User.dummy() {
     return User(
       id: 001,
-      name: "Ilham Ahmad Putra Aziz",
+      name: "Ilham Ahmad Putra Aziz Eden",
       username: "iapa",
       email: "iapa@email.com",
       profilePhoto:
